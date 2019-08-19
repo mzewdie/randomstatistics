@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Hashtable;
 import java.util.Locale;
@@ -99,10 +100,17 @@ public class RecordRandomize {
          
          //display the result and write the result to the file
          Calendar currentDateCal=Calendar.getInstance(Locale.GERMANY);
-         String currentTimeStr =""+currentDateCal.get(Calendar.YEAR)+currentDateCal.get(Calendar.MONTH)+currentDateCal.get(Calendar.DAY_OF_MONTH)+"_"+
-                              currentDateCal.get(Calendar.HOUR)+currentDateCal.get(Calendar.MINUTE)+currentDateCal.get(Calendar.SECOND);
+         //String currentTimeStr =""+currentDateCal.get(Calendar.YEAR)+currentDateCal.get(Calendar.MONTH)+currentDateCal.get(Calendar.DAY_OF_MONTH)+"_"+
+         //                     currentDateCal.get(Calendar.HOUR)+currentDateCal.get(Calendar.MINUTE)+currentDateCal.get(Calendar.SECOND);
          
-         String fileName = "DrawnNumbers_"+currentTimeStr+".csv";
+         
+         
+         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss");
+         String dateStr= simpleDateFormat.format(currentDateCal.getTime());
+         //System.out.println("current date str: "+dateStr);
+         String fileName = "DrawnNumbers_"+dateStr+".csv";
+       
+         
          boolean writeToFile=true;
          //FileOutputStream fileOutputStream=null;
          
